@@ -6,10 +6,17 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-
+    <context:component-scan base-package="ru.safontev.springcourse"/>
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean1"
+    <!--<bean id="musicBean"
+          class="ru.safontev.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
+
+    </bean>-->
+    <!--<bean id="musicBean1"
           class="ru.safontev.springcourse.ClassicalMusic">
 
     </bean>
@@ -20,21 +27,21 @@
     <bean id="musicBean3"
           class="ru.safontev.springcourse.RapMusic">
 
-    </bean>
-    <bean id="musicPlayer"
-          class="ru.safontev.springcourse.MusicPlayer">
-            <!--<constructor-arg ref="musicBean"/>-->
-        <!--<property name="music" ref="musicBean"/>-->
+    </bean>-->
+   <!-- <bean id="musicPlayer"
+          class="ru.safontev.springcourse.MusicPlayer" scope="prototype">
+            &lt;!&ndash;<constructor-arg ref="musicBean"/>&ndash;&gt;
+        <property name="music" ref="musicBean"/>
 
-        <property name="musicList">
+        &lt;!&ndash;<property name="musicList">
             <list>
                 <ref bean="musicBean1"/>
                 <ref bean="musicBean2"/>
                 <ref bean="musicBean3"/>
             </list>
-        </property>
+        </property>&ndash;&gt;
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    </bean>-->
 </beans>
