@@ -2,15 +2,15 @@ package ru.safontev.springcourse;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class ClassicalMusic implements Music{
 
-    private ClassicalMusic(){
+   /* private ClassicalMusic(){
 
     }
     public static ClassicalMusic getClassicalMusic(){
         return new ClassicalMusic();
-    }
+    }*/
 
     public void doMyInit(){
         System.out.println("init");
