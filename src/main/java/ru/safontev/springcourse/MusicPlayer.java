@@ -1,6 +1,8 @@
 package ru.safontev.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,24 +13,27 @@ public class MusicPlayer {
     //    private List<Music> musicList = new ArrayList<>();
     private ClassicalMusic classicalMusic;
     private RockMusic rockMusic;
+
     private Music music;
+    @Value("${musicPlayer.name}")
     private String name;
+    @Value("${musicPlayer.volume}")
     private int volume;
 
-    @Autowired
+    /*@Autowired
     public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
         this.classicalMusic = classicalMusic;
         this.rockMusic = rockMusic;
-    }
+    }*/
 
 
-
-    /*public MusicPlayer(Music music) {
+    @Autowired
+    public MusicPlayer(@Qualifier(value = "classicalMusic") Music music) {
         this.music = music;
     }
 
 
-    public void setMusic(Music music) {
+    /*public void setMusic(Music music) {
         this.music = music;
     }*/
 
@@ -53,8 +58,9 @@ public class MusicPlayer {
     }
 
 
-    public String playMusic() {
-        return "Playing: " + classicalMusic.getSong();
+    public void playMusic() {
+        System.out.println("Playing: " + music.getSong());
+
 //        for (Music music: musicList){
 //        System.out.println("Playing: " + classicalMusic.getSong());
 //        System.out.println("Playing: " + rockMusic.getSong());
